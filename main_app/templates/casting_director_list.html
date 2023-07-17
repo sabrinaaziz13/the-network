@@ -1,21 +1,42 @@
-<!DOCTYPE html>
-    <main>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>The Network</title>
-    </head>
-    <body>
-        {% extends 'base.html' %}
-      {% block content %}
-      <h1>The Network's Casting Directors</h1>
-      <a>Casting Director 1</a></br>
-      <a>Casting Director 2</a></br>
-      <a>Casting Director 3</a></br>
-      <a>Casting Director 4</a></br>
-      {% endblock %}
-    </body>
-</html>
-</main>
+{% extends 'base.html' %}
+
+{% block title %}Casting Directors{% endblock  %}
+
+{% block content %}
+
+<h1 class="title pt-5">Casting Directors</h1>
+<form class="mb-5" method="get">
+    <div class="field has-addons">
+      <div class="control">
+        <input class="input" type="text" name="name" placeholder="name" />
+      </div>
+      <div class="control">
+        <input class="button is-success" type="submit" value="Search" />
+      </div>
+    </div>
+    <a class="button is-dark" href="{% url 'casting_director_list' %}">Clear Search</a>
+  </form>
+<div class="gallery">
+  {% for casting_director in casting_directors %}
+  <a href="">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-square">
+          <img src="{{casting_director.img}}" alt="{{casting_director.name}}" />
+          <h1>{{casting_director.name}}</h1>
+        </figure>
+      </div>
+      <div class="card-header">
+        <p class="card-header-title">{{casting_director.name}}</p>
+      </div>
+    </div>
+  </a>
+	{% empty %}
+  <article class="message">
+    <div class="message-header">
+      <p>No Casting Directors Available</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -33,12 +33,12 @@ h3 {
   z-index: 10;
 }
 
-p {
+.footer_container p {
   font-size: 12px;
 }
 
-.footer {
+.footer_container {
   margin-bottom: 0;
   width: 100%;
-  color: black;
+  color: #121212;
 }
