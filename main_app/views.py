@@ -32,14 +32,3 @@ class CastingDirectorList(TemplateView):
 
 class Profile(TemplateView):
     template_name = "profile.html"
-
-class CastingDirector:
-    def __init__(self, name, img, bio):
-        self.name = name
-        self.img = img
-        self.bio = bio
-
-
-# casting_directors = [
-#   CastingDirector("David Rapaport", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDEWvuedDrl1EwuXMg2y55NnVveB35tJqYyUVMuB3aOW4AlJOm", "Those who know, know. David has cast just about every popular teen-based drama on television in the last fifteen years."),
-# ]
