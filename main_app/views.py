@@ -5,7 +5,11 @@ from django.views.generic.base import TemplateView
 from .models import CastingDirector
 from django.views.generic.edit import CreateView
 
-
+class CastingDirectorCreate(CreateView):
+    model = CastingDirector
+    fields = ['name', 'img', 'bio']
+    template_name = "casting_director_create.html"
+    success_url = "/casting-directors/"
 
 class Home(View):
     def get(self, request):
