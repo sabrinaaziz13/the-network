@@ -4,7 +4,7 @@ from django.views import View
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from .models import CastingDirector
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 
 class CastingDirectorCreate(CreateView):
@@ -12,20 +12,26 @@ class CastingDirectorCreate(CreateView):
     fields = ['name', 'img', 'bio']
     template_name = "casting_director_create.html"
     success_url = "/casting-directors/"
+
     def get_success_url(self):
         return reverse('casting_director_detail', kwargs={'pk': self.object.pk})
-
-class CastingDirectorDetail(DetailView):
-    model = CastingDirector
-    template_name = "casting_director_detail.html"
 
 class CastingDirectorUpdate(UpdateView):
     model = CastingDirector
     fields = ['name', 'img', 'bio']
     template_name = "casting_director_update.html"
+    
+    def get_success_url(self):
+        return reverse('casting_director_detail', kwargs={'pk': self.object.pk})
+
+class CastingDirectorDelete(DeleteView):
+    model = CastingDirector
+    template_name = "casting_director_delete_confirmation.html"
     success_url = "/casting-directors/"
-    # def get_success_url(self):
-    #     return reverse('casting_director_detail', kwargs={'pk': self.object.pk})
+
+class CastingDirectorDetail(DetailView):
+    model = CastingDirector
+    template_name = "casting_director_detail.html"
 
 class Home(View):
     def get(self, request):
@@ -35,9 +41,9 @@ class About(View):
     def get(self, request):
         return HttpResponse("The Network About Page")
     
-class Profile(View):
+class Project(View):
     def get(self, request):
-        return HttpResponse("Your Profile")
+        return HttpResponse("Project")
     
 class Home(TemplateView):
     template_name = "home.html"
@@ -60,5 +66,5 @@ class CastingDirectorList(TemplateView):
         
         return context 
 
-class Profile(TemplateView):
-    template_name = "profile.html"
+class Project(TemplateView):
+    template_name = "project.html"

@@ -14,12 +14,31 @@
                 <i class="fas fa-edit"></i>
             </span>
         </a>
-        <a href="" class="button is-danger">
+        <a href="{% url 'casting_director_delete' castingdirector.pk %}" class="button is-danger">
             <span class="icon">
                 <i class="fas fa-trash-alt"></i>
             </span>
         </a>
     </div>
+    <div class="detail__projects mb-5">
+        <h3 class="title is-3">Projects</h3>
+    
+        {% for projects in casting_director.projects.all %}
+        <div class="project">
+          <span>{{forloop.counter}}</span>
+          <span><b>{{projects.title}}</b></span>
+          <span>{{project.type}}</span>
+          <span>{{project.union}}</span>
+        </div>
+            {% empty %}
+        <article class="message">
+          <div class="message-header">
+            <p>No Projects Available</p>
+          </div>
+        </article>
+    
+        {% endfor %}
+      </div>
     <div class="detail__about">
         <h4 class="title is-4">Bio:</h4>
         <p>{{castingdirector.bio}}</p>
