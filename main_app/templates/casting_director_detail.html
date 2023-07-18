@@ -21,14 +21,39 @@
         </a>
     </div>
     <div class="detail__projects mb-5">
-        <h3 class="title is-3">Projects</h3>
-    
-        {% for projects in casting_director.projects.all %}
+        <h3 class="title is-3">Projects:</h3>
+            <form class="mb-5" action="{% url 'project_create' castingdirector.pk %}" method="post">
+                {% csrf_token %}
+                <div class="field has-addons">
+                    <div class="control">
+                        <input
+                            class="input"
+                            type="text"
+                            name="title"
+                            placeholder="Title"
+                            required
+                        />
+                    </div>
+                    <div class="control">
+                        <input
+                            class="input"
+                            type="text"
+                            name="type"
+                            placeholder="Type"
+                            required
+                        />
+                    </div>
+                    <div class="control">
+                        <input class="button is-primary" type="submit" value="Add Project" />
+                    </div>
+                </div>
+            </form>
+
+        {% for project in castingdirector.projects.all %}
         <div class="project">
           <span>{{forloop.counter}}</span>
-          <span><b>{{projects.title}}</b></span>
+          <span><b>{{project.title}}</b></span>
           <span>{{project.type}}</span>
-          <span>{{project.union}}</span>
         </div>
             {% empty %}
         <article class="message">

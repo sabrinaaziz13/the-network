@@ -18,8 +18,7 @@ class Project(models.Model):
     location = models.CharField(max_length=100)
     union = models.CharField(max_length=100)
     description = models.TextField(max_length=10000)
-    castingdirector = models.ForeignKey(CastingDirector, on_delete=models.CASCADE, related_name="projects")
-
+    casting_director = models.ForeignKey(CastingDirector, on_delete=models.CASCADE, related_name="project")
 
     def __str__(self):
         return self.title

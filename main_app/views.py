@@ -1,9 +1,10 @@
+from django.shortcuts import redirect
 from django.urls import reverse
 from django.shortcuts import render
 from django.views import View 
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
-from .models import CastingDirector
+from .models import CastingDirector, Project
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
 
@@ -32,6 +33,15 @@ class CastingDirectorDelete(DeleteView):
 class CastingDirectorDetail(DetailView):
     model = CastingDirector
     template_name = "casting_director_detail.html"
+
+class ProjectCreate(View):
+
+    def post(self, request, pk):
+        title = request.POST.get("title")
+        type = request.POST.get("type")
+        casting_director = CastingDirector.objects.get(pk=pk)
+        Project.objects.create(title=title, type=type, casting_director=casting_director)
+        return redirect('casting_director_detail', pk=pk)
 
 class Home(View):
     def get(self, request):
