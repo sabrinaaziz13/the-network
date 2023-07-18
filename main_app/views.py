@@ -51,10 +51,6 @@ class About(View):
     def get(self, request):
         return HttpResponse("The Network About Page")
     
-class Project(View):
-    def get(self, request):
-        return HttpResponse("Project")
-    
 class Home(TemplateView):
     template_name = "home.html"
 
@@ -76,5 +72,5 @@ class CastingDirectorList(TemplateView):
         
         return context 
 
-class Project(TemplateView):
+class ProjectView(TemplateView):
     template_name = "project.html"
