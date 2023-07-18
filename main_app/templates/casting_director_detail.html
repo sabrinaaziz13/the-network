@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="detail__img">
+    <img src="{{castingdirector.img}}" alt="{{castingdirector.name}}" />
+</div>
+<div class="detail__name">
+    <h1 class="title">{{castingdirector.name}}</h1>
+</div>
+<div class="detail__container">
+    <div class="buttons">
+        <a href="{% url 'casting_director_update' castingdirector.pk %}" class="button is-info"> Updates
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+        <a href="" class="button is-danger">
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </a>
+    </div>
+    <div class="detail__about">
+        <h4 class="title is-4">Bio:</h4>
+        <p>{{castingdirector.bio}}</p>
+    </div>
+</div>
+
+{% endblock %}

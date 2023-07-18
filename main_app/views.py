@@ -1,15 +1,31 @@
+from django.urls import reverse
 from django.shortcuts import render
 from django.views import View 
 from django.http import HttpResponse
 from django.views.generic.base import TemplateView
 from .models import CastingDirector
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic import DetailView
 
 class CastingDirectorCreate(CreateView):
     model = CastingDirector
     fields = ['name', 'img', 'bio']
     template_name = "casting_director_create.html"
     success_url = "/casting-directors/"
+    def get_success_url(self):
+        return reverse('casting_director_detail', kwargs={'pk': self.object.pk})
+
+class CastingDirectorDetail(DetailView):
+    model = CastingDirector
+    template_name = "casting_director_detail.html"
+
+class CastingDirectorUpdate(UpdateView):
+    model = CastingDirector
+    fields = ['name', 'img', 'bio']
+    template_name = "casting_director_update.html"
+    success_url = "/casting-directors/"
+    # def get_success_url(self):
+    #     return reverse('casting_director_detail', kwargs={'pk': self.object.pk})
 
 class Home(View):
     def get(self, request):
@@ -41,6 +57,7 @@ class CastingDirectorList(TemplateView):
         else:    
             context["casting_directors"] = CastingDirector.objects.all()
             context["header"] = "Casting Directors"
+        
         return context 
 
 class Profile(TemplateView):

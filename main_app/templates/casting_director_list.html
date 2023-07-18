@@ -19,12 +19,11 @@
   </form>
 <div class="gallery">
   {% for casting_director in casting_directors %}
-  <a href="">
+  <a href="{% url 'casting_director_detail' casting_director.pk %}">
     <div class="card">
       <div class="card-image">
         <figure class="image is-square">
           <img src="{{casting_director.img}}" alt="{{casting_director.name}}" />
-          <h1>{{casting_director.name}}</h1>
         </figure>
       </div>
       <div class="card-header">
