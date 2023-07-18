@@ -39,8 +39,8 @@ class ProjectCreate(View):
     def post(self, request, pk):
         title = request.POST.get("title")
         type = request.POST.get("type")
-        casting_director = CastingDirector.objects.get(pk=pk)
-        Project.objects.create(title=title, type=type, casting_director=casting_director)
+        castingdirector = CastingDirector.objects.get(pk=pk)
+        Project.objects.create(title=title, type=type, castingdirector=castingdirector)
         return redirect('casting_director_detail', pk=pk)
 
 class Home(View):
