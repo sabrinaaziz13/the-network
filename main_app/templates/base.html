@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <main>  
+  
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,6 +16,7 @@
     <body >
         <nav class="navbar is-black" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
+              <img src="{% static 'img/thenetworklogo.png' %}" alt="TheNetwork logo">
                 <a class="navbar-item" href="/">TheNetwork</a>
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
                     <span aria-hidden="true"></span>
@@ -43,16 +44,15 @@
         </div>
       </div>
     </div>
-  </body>
-</main>
-<div class="footer_container">
-  <footer>
-  <div class="content has-text-centered">
-    <p>ⓒ 2023 TheNetwork. Created by Sabrina Aziz.
-    </br>
-      Made with love for Actors. By an Actor.
-    </p>
-  </div>
-</footer>
-</div>
+    
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <a href='https://www.instagram.com/thesabrinaaziz/' target="_blank"><p>Let's connect!</p></a>
+        <p>ⓒ 2023 TheNetwork. Created by Sabrina Aziz.
+        </br>
+        Made with love for Actors. By an Actor.
+      </p>
+    </div>
+  </footer>
+</body>
 </html>

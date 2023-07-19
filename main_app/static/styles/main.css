@@ -96,9 +96,41 @@ img {
   cursor: pointer;
 }
 
-.footer_container p {
-  margin-bottom: auto;
-  position: relative;
-  width: 100%;
+.footer {
+  background-color: #1f1f1f;
   color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+
+.navbar-brand img {
+  height: 70px;
+  width: 100px;
+}
+
+.home-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("/static/img/thenetworklogo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.home-content {
+  color: #ffffff;
+}
+
+.home-content h1, .home-content p {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  justify-content: center;
+  color: #008080;
 }
