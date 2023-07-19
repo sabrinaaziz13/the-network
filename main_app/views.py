@@ -43,20 +43,6 @@ class ProjectCreate(View):
         Project.objects.create(title=title, type=type, castingdirector=castingdirector)
         return redirect('casting_director_detail', pk=pk)
 
-class Home(View):
-    def get(self, request):
-        return HttpResponse("Welcome to The Network Homepage")
-
-class About(View):
-    def get(self, request):
-        return HttpResponse("The Network About Page")
-    
-class Home(TemplateView):
-    template_name = "home.html"
-
-class About(TemplateView):
-    template_name = "about.html"
-
 class CastingDirectorList(TemplateView):
     template_name = "casting_director_list.html"
 
@@ -74,3 +60,17 @@ class CastingDirectorList(TemplateView):
 
 class ProjectView(TemplateView):
     template_name = "project.html"
+
+class Home(View):
+    def get(self, request):
+        return HttpResponse("Welcome to The Network Homepage")
+
+class About(View):
+    def get(self, request):
+        return HttpResponse("The Network About Page")
+    
+class Home(TemplateView):
+    template_name = "home.html"
+
+class About(TemplateView):
+    template_name = "about.html"
