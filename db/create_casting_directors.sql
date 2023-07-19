@@ -8,4 +8,4 @@ INSERT INTO main_app_castingdirector(name, img, bio)
 
 INSERT INTO main_app_castingdirector(name, img, bio)
   VALUES
-    ('Bernard Telsey', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0jVEtJJmWpd3f5qJOFQyYABfXqEyGyQGGQ9V8AI2WJ1VwRdh8', 'Bernard Telsey is a casting director and co-founder of MCC Theater. In the 1980s, Telsey began working for Simon & Kumin Casting as an assistant, then a casting director at Risa Bramon & Billy Hopkins Casting.');
+    ('Bernard Telsey', 'https://assets.playbill.com/editorial/_defaultEnhancement/1666d87c7078e3c9fffa123fbec0d38a-telsnew200.jpg', 'Bernard Telsey is a casting director and co-founder of MCC Theater. In the 1980s, Telsey began working for Simon & Kumin Casting as an assistant, then a casting director at Risa Bramon & Billy Hopkins Casting.');
