@@ -64,7 +64,6 @@ WSGI_APPLICATION = 'the_network.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default = f"postgres://{os.environ['DB_USER']}:{os.environ['DB_PW']}@{os.environ['DB_HOST']}/the_network",
         conn_max_age=600,
         conn_health_checks=True,
     )
