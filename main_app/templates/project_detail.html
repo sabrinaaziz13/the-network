@@ -1,0 +1,52 @@
+{% extends 'base.html' %} 
+{% block content %}
+<!-- <div class="detail__img">
+    <img src="{{project.img}}" alt="{{project.title}}" />
+</div> -->
+<!-- <div class="detail__name">
+    <h1 class="title">Project</h1>
+</div> -->
+<div class="project__container">
+    <div class="buttons">
+        <a href="{% url 'project_update' project.pk %}" class="button is-info"> 
+            <span class="icon">
+                <i class="fas fa-edit"></i>
+            </span>
+        </a>
+        <a href="{% url 'project_delete' project.pk %}" class="button is-danger">
+            <span class="icon">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </a>
+    </div>
+
+    <div class="detail__about">
+     
+        <h4 class="title">
+      <h4 class="title">
+        <a href="{% url 'casting_director_detail' project.castingdirector.pk %}">Casting Director: {{project.castingdirector}}</a></h4>
+      <h4 class="title is-4">Project title: {{project.title}}</h4>
+      <h4 class="title is-4">Project type: {{project.type}}</h4>
+      <h4 class="title is-4">Location: {{project.location}}</h4>
+      <h4 class="title is-4">Union Satus: {{project.union}}</h4>
+      <h4 class="title is-4">Project Description:</h4>
+        <p>{{project.description}}</p>
+      </br>
+      <h5>Are you interested in this applying to this project? 
+        <div class="buttons">
+      <!-- </br><a href="">Yes</a>  -->
+        <a href="" alt="yes" class="button is-info"> 
+            <span class="icon">
+            </span>
+        </a>
+        <!-- <a href="">No</a></br> -->
+        <a href="" alt="no" class="button is-danger">
+          <span class="icon">
+          </span>
+      </a>
+  </div>
+      </h5>
+    </div>
+</div>
+
+{% endblock %}

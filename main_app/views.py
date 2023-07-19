@@ -58,8 +58,36 @@ class CastingDirectorList(TemplateView):
         
         return context 
 
-class ProjectView(TemplateView):
-    template_name = "project.html"
+class ProjectUpdate(UpdateView):
+    model = Project
+    fields = ['title', 'type', 'location', 'description', 'castingdirector']
+    template_name = "project_update.html"
+    def get_success_url(self):
+        return reverse('project_detail', kwargs={'pk': self.object.pk})
+
+class ProjectDelete(DeleteView):
+    model = Project
+    template_name = "project_delete_confirmation.html"
+    success_url = "/projects/"
+
+class ProjectDetail(DetailView):
+    model = Project
+    template_name = "project_detail.html"
+
+class ProjectList(TemplateView):
+    template_name = "project_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        title = self.request.GET.get("title")
+        if title != None:
+            context["projects"] = Project.objects.filter(title__icontains=title)
+            context["header"] = f"Searching for {title}"
+        else:
+            context["projects"] = Project.objects.all() 
+            context["header"] = "Trending Projects"
+
+        return context
 
 class Home(View):
     def get(self, request):

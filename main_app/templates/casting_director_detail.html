@@ -9,7 +9,7 @@
 </div>
 <div class="detail__container">
     <div class="buttons">
-        <a href="{% url 'casting_director_update' castingdirector.pk %}" class="button is-info"> Updates
+        <a href="{% url 'casting_director_update' castingdirector.pk %}" class="button is-info"> 
             <span class="icon">
                 <i class="fas fa-edit"></i>
             </span>
@@ -52,7 +52,9 @@
         {% for project in castingdirector.projects.all %}
         <div class="project">
           <span>{{forloop.counter}}</span>
-          <span><b>{{project.title}}</b></span>
+          <span><b>
+            <a href="{% url 'project_detail' project.pk %}">{{project.title}}</a>
+            </b></span>
           <span>{{project.type}}</span>
         </div>
             {% empty %}

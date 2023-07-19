@@ -1,7 +1,7 @@
 body {
   background-color: #121212;
   color: #ffffff;
-  min-height: 100vh;
+  min-height: 100vh; 
 }
 
 h1,
@@ -94,4 +94,11 @@ img {
 .project:hover {
   background-color: hsla(0, 0%, 100%, 0.1);
   cursor: pointer;
+}
+
+.footer_container p {
+  margin-bottom: auto;
+  position: relative;
+  width: 100%;
+  color: #ffffff;
 }
